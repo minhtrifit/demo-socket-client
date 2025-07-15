@@ -8,10 +8,14 @@ import {
   ShoppingOutlined,
 } from '@ant-design/icons';
 import { StartListeners } from '@/helpers/socket.helper';
+import { StartListeners as StartWSListeners } from '@/helpers/websocket.helper';
+import { useWebSocketContext } from '@/+core/provider/WebSocketProvider';
 
 const DashboardPage = () => {
   const socket = useSocketContext();
+  const { isConnected, messages } = useWebSocketContext();
 
+  // Socket-io handle
   useEffect(() => {
     if (!socket.connected) {
       socket.connect();
@@ -19,6 +23,14 @@ const DashboardPage = () => {
 
     StartListeners(socket);
   }, [socket]);
+
+  // Websocket handle
+  useEffect(() => {
+    if (isConnected) {
+      console.log(isConnected, messages);
+      StartWSListeners(messages);
+    }
+  }, [isConnected, messages]);
 
   return (
     <div>

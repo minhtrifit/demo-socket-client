@@ -24,3 +24,5 @@ client/*.sln
 client/*.sw?
 
 server/node_modules
+
+ws-server/node_modules
