@@ -1,0 +1,11 @@
+{
+  "dashboard": "Dashboard",
+  "management": "Management",
+  "products": "Products",
+  "carts": "Carts",
+  "role": "Role",
+  "customers": "Customers",
+  "staffs": "Staffs",
+  "settings": "Settings",
+  "log-out": "Log out"
+}
