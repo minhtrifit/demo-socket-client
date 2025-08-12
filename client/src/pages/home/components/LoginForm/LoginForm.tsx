@@ -44,10 +44,9 @@ const LoginForm: React.FC = () => {
   const onSubmit = async (data: LoginFormData) => {
     try {
       const authRes = await authApi.login(data);
+      console.log('AUTH RES >>>>>:', authRes.data);
 
-      if (authRes.status === 200) {
-        // console.log('AUTH RES >>>>>:', authRes.data);
-
+      if (authRes.status === 201) {
         message.success('Đăng nhập thành công!');
 
         const profileRes = await authApi.getProfile(authRes.data.token);
